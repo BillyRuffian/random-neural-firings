@@ -1,0 +1,17 @@
+= turbo_stream_from @user
+
+= render 'shared/menu', user: @user
+
+.content.pt-8.h-screen
+
+  %p{:style => "color: green"}= notice
+
+  = turbo_frame_tag 'notes-container' do
+    = render 'users/notes', user: @user
+
+    %div
+      = link_to "Edit this user", edit_user_path(@user)
+      |
+      \#{link_to "Back to users", users_path}
+      
+      \#{button_to "Destroy this user", @user, method: :delete}

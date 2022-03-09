@@ -1,0 +1,15 @@
+.header.header-fixed.u-unselectable
+  .header-brand
+    .nav-item.no-hover
+      %h6.title RNF
+    #header-btn.nav-item.nav-btn
+      %span
+      %span
+      %span
+  #header-menu.header-nav
+    .nav-right
+      - if @user
+        .nav-item 
+          = link_to '+ Note', new_user_note_path(user), class: 'btn btn-info square', data: { 'turbo-frame' => 'notes-container' }
+        .nav-item
+          = @user.name

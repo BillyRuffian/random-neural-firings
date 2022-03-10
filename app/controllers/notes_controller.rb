@@ -18,6 +18,10 @@ class NotesController < ApplicationController
     end
   end
 
+  def show
+    render 'notes/show'
+  end
+
   def destroy
     @note.destroy
 

@@ -1,0 +1,9 @@
+%li.menu-item{ id: dom_id(note)}
+  = link_to user_note_path(note.user, note) do 
+    .u-text-elipsis
+      = note.title
+    %div.text-gray-500
+      %i.fa-wrapper.fa-solid.fa-file
+      = time_tag note.updated_at, data: {local: :'time-or-date'}
+      %i.fa-wrapper.fa-solid.fa-clock
+      = time_tag note.updated_at, data: {local: :'time-ago'}

@@ -22,6 +22,7 @@ class Note < ApplicationRecord
   end
 
   def broadcast_destroy_later
+    broadcast_remove_to user
   end
 
   def broadcast_update_later

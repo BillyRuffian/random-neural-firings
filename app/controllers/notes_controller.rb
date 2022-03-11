@@ -32,7 +32,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to @user, status: :see_other, notice: 'Note deleted' }
+      format.html { redirect_to notes_path, status: :see_other, notice: 'Note deleted' }
     end
   end
 

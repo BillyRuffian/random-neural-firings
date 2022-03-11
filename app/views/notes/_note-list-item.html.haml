@@ -2,7 +2,8 @@
   = link_to note_path(note), data: { turbo_frame: 'notes-container' } do 
     .u-text-elipsis
       = note.title
-    %div.text-gray-500
+    
+    .text-gray-500
       %i.fa-wrapper.fa-solid.fa-file
       = time_tag note.updated_at, data: {local: :'time-or-date'}
       %i.fa-wrapper.fa-solid.fa-clock

@@ -1,13 +1,17 @@
-%h1
-  = link_to notes_path do 
-    %i.fa.solid.fa-arrow-left-long
+= turbo_stream_from note
 
-  .u-inline= note.title
+%div{ id: dom_id(note) }
 
-.divider
+  %h1
+    = link_to notes_path do 
+      %i.fa.solid.fa-arrow-left-long
 
-= link_to edit_note_path(note) do
-  EDIT
+    .u-inline= note.title
 
-= note.content_as_html.html_safe
+  .divider
+
+  = link_to edit_note_path(note) do
+    EDIT
+
+  = note.content_as_html.html_safe
 

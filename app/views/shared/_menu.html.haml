@@ -3,18 +3,17 @@
     .nav-item.no-hover
       %h6.title RNF
     .nav-item
-      %span.icon.text-orange-300
-        %i.fa-solid.fa-bolt-lightning
-    #header-btn.nav-item.nav-btn
-      %span
-      %span
-      %span
+      %span.icon.text-blue-400
+        %i.fa-solid.fa-dice-d20
   #header-menu.header-nav
     .nav-right
-      - if @user
+      - if user_signed_in?
         .nav-item 
-          = link_to new_user_note_path(user), class: 'btn btn-info square', data: { 'turbo-frame' => 'notes-container' } do
-            %i.fa-wrapper.fa-solid.fa-plus
+          = link_to new_note_path, data: { 'turbo-frame' => 'notes-container' } do
+            %i.pr-1.fa-wrapper.fa-solid.fa-plus
             Note
         .nav-item
-          = @user.name
+          = @user.email
+        .nav-item
+          = link_to destroy_user_session_path, data: { turbo_method: :delete } do 
+            %i.fa-solid.fa-arrow-right-from-bracket

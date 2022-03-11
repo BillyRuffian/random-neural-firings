@@ -1,6 +1,12 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_user
-  before_action :set_note, except: [:new, :create]
+  before_action :set_note, except: [:index, :new, :create]
+
+  def index
+    @notes = @user.notes
+  end
 
   def new
     @note = Note.new
@@ -8,13 +14,13 @@ class NotesController < ApplicationController
   end
 
   def create
-    @user.notes.create!(note_params)
-    redirect_to @user
+    @note = @user.notes.create!(note_params)
+    redirect_to @note
   end
 
   def update
     if @note.update(note_params)
-      redirect_to @user
+      redirect_to @note
     end
   end
 
@@ -40,11 +46,12 @@ class NotesController < ApplicationController
   private
 
   def set_user
-    @user ||= User.find(params[:user_id])
+    # @user ||= User.find(params[:user_id])
+    @user = current_user
   end
 
   def set_note
-    @note = set_user.notes.find(params[:id])
+    @note = current_user.notes.find(params[:id])
   end
 
   def note_params

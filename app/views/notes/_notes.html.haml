@@ -1,0 +1,3 @@
+%ul.menu
+  = turbo_frame_tag 'notes-list' do # render user.notes, user: user
+    = render partial: 'notes/note-list-item', collection: user.notes, as: :note

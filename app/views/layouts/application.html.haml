@@ -15,4 +15,13 @@
     = javascript_importmap_tags
   %body
     %section.h-screen
-      = yield
+      - if notice
+        %p.alert.alert-success
+          = notice
+      - if alert
+        %p.alert.alert-danger
+          = alert
+
+      = render 'shared/menu', user: @user
+      .content.pt-8.h-screen
+        = yield

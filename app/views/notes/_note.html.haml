@@ -1,14 +1,13 @@
 %h1
-  = link_to user_path(user) do 
+  = link_to notes_path do 
     %i.fa.solid.fa-arrow-left-long
 
   .u-inline= note.title
 
 .divider
 
-= link_to edit_user_note_path(note.user, note) do
+= link_to edit_note_path(note) do
   EDIT
-= link_to 'Back', user_path(user)
 
 = note.content_as_html.html_safe
 

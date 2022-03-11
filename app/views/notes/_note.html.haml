@@ -1,21 +1,14 @@
-.frame.my-8{ id: dom_id(note) }
-  .frame__header.bg-blue-100
-    .frame__title.title.m-0
-      .row.m-0.p-0
-        .col-xs-11= note.title
-        .col-xs-1
-          .u-pull-right
-            = link_to edit_user_note_path(note.user, note), class: 'm-0 u-center p-1 u-circle bg-blue-200' do
-              = render 'icons/edit'
+%h1
+  = link_to user_path(user) do 
+    %i.fa.solid.fa-arrow-left-long
 
-  .content-no-padding
-    .divider.m-0.bg-blue-200
+  .u-inline= note.title
 
-  .frame__body.my-1
-    = note.content_as_html.html_safe
+.divider
 
-  .content-no-padding
-    .divider.m-0
+= link_to edit_user_note_path(note.user, note) do
+  EDIT
+= link_to 'Back', user_path(user)
 
-  .frame__footer.bg-gray-100.py-1
-    .frame__subtitle.m-0 foo
+= note.content_as_html.html_safe
+

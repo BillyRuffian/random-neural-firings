@@ -1,5 +1,5 @@
 %li.menu-item{ id: dom_id(note)}
-  = link_to user_note_path(note.user, note) do 
+  = link_to user_note_path(note.user, note), data: { turbo_frame: 'notes-container' } do 
     .u-text-elipsis
       = note.title
     %div.text-gray-500

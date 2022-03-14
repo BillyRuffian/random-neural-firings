@@ -1,12 +1,15 @@
 
-.frame.pt-8.h-90
-  .frame__body.h-100
-    = form_with model: note, class: 'h-100' do |form|
+.frame.pt-8
+  .frame__body
+    = form_with model: note do |form|
       = form.text_field :title
-      = form.text_area :content, class: 'markdown h-80'
+      = form.text_area :content, class: 'markdown'
       .row
         .col
-          = link_to 'Cancel', notes_path
+          - if note.persisted?
+            = link_to 'Cancel', note_path(note)
+          - else
+            = link_to 'Cancel', notes_path
         .col
           - if note.persisted?
             = link_to 'Delete', note_path(note), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }

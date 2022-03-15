@@ -82,3 +82,5 @@ gem "rouge-rails", "~> 0.2.1"
 gem "kramdown-parser-gfm", "~> 1.1"
 
 gem "devise", "~> 4.8"
+
+gem "pagy", "~> 5.10"

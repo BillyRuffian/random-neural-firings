@@ -3,10 +3,11 @@
     = link_to note_path(note), data: { turbo_frame: 'notes-container' } do 
       .u-text-elipsis
         = note.title
-      
-      .text-gray-500
-        %i.fa-wrapper.fa-solid.fa-file
-        = time_tag note.updated_at, data: {local: :'time-or-date'}
-        %i.fa-wrapper.fa-solid.fa-clock
-        = time_tag note.updated_at, data: {local: :'time-ago'}
+        
+      %small
+        .text-gray-500
+          %i.fa-wrapper.fa-solid.fa-file
+          = time_tag note.updated_at, data: {local: :'time-or-date'}
+          %i.fa-wrapper.fa-solid.fa-clock
+          = time_tag note.updated_at, data: {local: :'time-ago'}
   .divider

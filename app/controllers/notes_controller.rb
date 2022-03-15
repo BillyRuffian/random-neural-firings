@@ -1,11 +1,13 @@
 class NotesController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_user!
 
   before_action :set_user
   before_action :set_note, except: [:index, :new, :create]
 
   def index
-    @notes = @user.notes
+    @pagy, @notes = pagy(@user.notes)
   end
 
   def new

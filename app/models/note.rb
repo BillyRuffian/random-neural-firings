@@ -18,16 +18,16 @@ class Note < ApplicationRecord
   private
 
   def broadcast_create_later
-    broadcast_prepend_later_to user, target: 'notes-list', partial: 'notes/note-list-item', locals: { note: self }
+    # broadcast_prepend_later_to user, target: 'notes-list', partial: 'notes/note-list-item', locals: { note: self }
   end
 
   def broadcast_destroy_later
-    broadcast_remove_to user
+    # broadcast_remove_to user
   end
 
   def broadcast_update_later
     # broadcast_remove_to user
-    broadcast_prepend_later_to user, target: 'notes-list', partial: 'notes/note-list-item', locals: { note: self }
+    # broadcast_prepend_later_to user, target: 'notes-list', partial: 'notes/note-list-item', locals: { note: self }
 
     broadcast_replace_later_to self, target: self, partial: 'notes/note', locals: { note: self }
     # broadcast_replace_later_to user, target: self, partial: 'notes/note-list-item', locals: {note: self}

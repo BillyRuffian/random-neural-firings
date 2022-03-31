@@ -6,7 +6,7 @@
 
 - link = pagy_link_proc(pagy)
 
-.pagination{"aria-label" => "pager", :role => "navigation"}
+.pagination.u-center{"aria-label" => "pager", :role => "navigation"}
 
   - if pagy.prev
     .pagination-item.short!= link.call(pagy.prev, pagy_t('pagy.nav.prev'), 'aria-label="previous"')
